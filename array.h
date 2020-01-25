@@ -6,12 +6,18 @@
 
 /**
  * this class represents an array that takes any values that extend objects */
-class Array: Object {
+class Array: public Object {
     Object** val_; // stored values
     size_t size_; //the number of stored values
     size_t type_; //the type of the values
 
 public:
+    //the default constructor for an Array
+    Array(): Object() {}
+
+    //the default destructor for Array
+    ~Array() {}
+
     /**
      * adds the object to the back of the array
      * @arg o: the object that will be added to the back of the array */
@@ -63,11 +69,6 @@ public:
      * @arg i: the index where the object will be set in the array
      * @arg o: the object that will be placed at index i */
     void set(size_t idx, Object* o);
-
-    /**
-     * sets the type of the array
-     * @arg type: the type that the array will be set to as a size_t */
-    void set_type(size_t type);
 
     // gets current size of the array, meaning the number of filled elements
     size_t size();
