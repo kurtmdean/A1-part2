@@ -6,6 +6,7 @@
 #include "array.h"
 #include "helper.h"
 #include "string.h"
+#include "object.h"
 
 void FAIL() {   exit(500);    }
 void OK(const char* m) {
@@ -19,6 +20,7 @@ Array* arr = new Array();
 Array* full = new Array();
 Array* thing1 = new Array();
 Array* thing2 = new Array();
+Array* thing3 = new Array();
 
 void init() {
     arr = new Array();
@@ -30,7 +32,9 @@ void init() {
     thing1 = new Array();
     thing2 = new Array();
     thing1->add(new String("doctor"));
-    thing2->add_all(0, thing1);
+    thing3 = new Array();
+    thing3->add(new String("doctor"));
+    thing2->add_all(0, thing3);
 }
 
 
@@ -49,10 +53,6 @@ void test_add_bad_index() {
 }
 
 void test_add() {
-    init();
-    arr->set_type(1);
-    arr->add(new Object()); //should change the type of the array to 0
-    t_true(0 == arr->get_type());
     init();
     arr->add(new String("woot"));
     t_true(1 == arr->get_type());
@@ -80,7 +80,6 @@ void test_add() {
 
 void test_add_all() {
     init();
-    arr->set_type(1);
     arr->add(new String("woot"));
     arr->add_all(0, full);
     t_true(new String("boii")->equals(arr->get(0)));
@@ -88,13 +87,43 @@ void test_add_all() {
     t_true(new String("yeet")->equals(arr->get(2)));
     t_true(new String("yolo")->equals(arr->get(3)));
     t_true(new String("woot")->equals(arr->get(4)));
-    OK("Add all was a success")
+    arr->add_all(5, full);
+    t_true(new String("boii")->equals(arr->get(0)));
+    t_true(new String("lit")->equals(arr->get(1)));
+    t_true(new String("yeet")->equals(arr->get(2)));
+    t_true(new String("yolo")->equals(arr->get(3)));
+    t_true(new String("woot")->equals(arr->get(4)));
+    t_true(new String("boii")->equals(arr->get(5)));
+    t_true(new String("lit")->equals(arr->get(6)));
+    t_true(new String("yeet")->equals(arr->get(7)));
+    t_true(new String("yolo")->equals(arr->get(8)));
+    t_true(new String("woot")->equals(arr->get(9)));
+    init();
+    arr->add_all(2, new Array());
+    t_true(new String("boii")->equals(arr->get(0)));
+    t_true(new String("lit")->equals(arr->get(1)));
+    t_true(new String("yeet")->equals(arr->get(2)));
+    t_true(new String("yolo")->equals(arr->get(3)));
+    t_true(new String("woot")->equals(arr->get(4)));
+    Array* a = new Array();
+    a->add(new String("a"));
+    a->add(new String("b"));
+    arr->add_all(2, a);
+    t_true(new String("boii")->equals(arr->get(0)));
+    t_true(new String("lit")->equals(arr->get(1)));
+    t_true(new String("a")->equals(arr->get(2)));
+    t_true(new String("b")->equals(arr->get(3)));
+    t_true(new String("yeet")->equals(arr->get(4)));
+    t_true(new String("yolo")->equals(arr->get(5)));
+    t_true(new String("woot")->equals(arr->get(6)));
+    OK("Add all was a success");
 }
 
 void test_clear() {
     init();
     full->clear();
     t_true(full->size() == 0);
+    t_true(full->equals(new Array()));
     OK("Successfully cleared array");
 }
 
@@ -162,12 +191,6 @@ void test_set() {
     init();
     
     OK("set");
-}
-
-void test_set_type() {
-    init();
-
-    OK("set_type");
 }
 
 void test_size() {
