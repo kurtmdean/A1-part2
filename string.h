@@ -8,9 +8,7 @@
  * author: vitekj@me.com                                                         
  */                                                                              
 class String : public Object {                                                   
- public:                                                                                                                                                        
-  char* val_; // data                                                            
-  size_t size_; // number of characters (excluding \0)                           
+ public:                                                                                                                                                                               
                                                                                  
   /** Construct a string copying s */                                            
   String(char* s);                                                                              

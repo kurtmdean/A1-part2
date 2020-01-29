@@ -5,8 +5,7 @@
  * A class that represents the top of the object hierarchy.                      
  * author: vitekj@me.com */                                                      
 class Object : public Sys {                                                      
- public:                                                                         
-  size_t hash_;  // cache the hash value                                         
+ public:                                                                                                           
                                                                                  
   /** Default constructor ensure that hash is initialized */                     
   Object();                                                    
