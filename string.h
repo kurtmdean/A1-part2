@@ -32,10 +32,7 @@ class String : public Object {
                                                                                           
   /** Returns 0 if strings are equal, >0 if this string is larger,               
    *  <0 otherwise */                                                            
-  int compare(String* tgt);                  
-                                                                                 
-  /** Textbook hash function on strings.   */                                    
-  size_t hash_me_();                                                                             
+  int compare(String* tgt);                                                                                                                                                                           
                                                                                  
   /** Number of non \0 characters in this string */                              
   size_t size();                                         
