@@ -48,7 +48,10 @@ public:
     /**
      * returns the type of the array as a size_t
      * 0 is Object
-     * 1 is String */
+     * 1 is String
+     * 2 is Float
+     * 3 is Integer
+     * 4 is Bool */
     size_t get_type();
 
     /**
