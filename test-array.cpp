@@ -200,3 +200,19 @@ void test_size() {
     t_true(thing1->size() == 1);
     OK("size");
 }
+
+int main() {
+    test_add_null();
+    test_add_bad_index();
+    test_add();
+    test_add_all();
+    test_clear();
+    test_equals_null();
+    test_equals();
+    test_get();
+    test_get_type();
+    test_index_of();
+    test_remove_breaks();
+    test_set();
+    test_size();
+}
