@@ -74,3 +74,47 @@ public:
     size_t size();
 
 };
+
+// class which represents integer
+class Integer: public Object {
+    
+    /**
+     * default constructor for Integer: accepts an int and stores the value
+     * @param val: the size_t*/
+    Integer(int val);
+
+    //default destructor for Integer
+    ~Integer();
+
+    //returns the stored int value
+    int get();
+};
+
+//represents a float
+class Float: public Object {
+
+    /**
+     * default constructor: accepts a float and stores it
+     * @param f: the float value to store */
+    Float(float f);
+
+    //default destructor for Float
+    ~Float();
+
+    //returns the stored float value
+    float get();
+};
+
+//represents a boolean
+class Bool: public Object {
+
+    /**
+     * default constructor for Bool: accepts a bool and stores it
+     * @param b: the bool to store */
+    Bool(bool b);
+
+    ~Bool();
+
+    //returns the stored bool value
+    bool get();
+};
