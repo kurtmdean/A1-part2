@@ -113,6 +113,7 @@ class Bool: public Object {
          * @param b: the bool to store */
         Bool(bool b);
 
+        //default destructor for Bool
         ~Bool();
 
         //returns the stored bool value
