@@ -7,9 +7,6 @@
 /**
  * this class represents an array that takes any values that extend objects */
 class Array: public Object {
-    Object** val_; // stored values
-    size_t size_; //the number of stored values
-    size_t type_; //the type of the values
 
 public:
     //the default constructor for an Array
@@ -77,44 +74,47 @@ public:
 
 // class which represents integer
 class Integer: public Object {
+    public:
     
-    /**
-     * default constructor for Integer: accepts an int and stores the value
-     * @param val: the size_t*/
-    Integer(int val);
+        /**
+         * default constructor for Integer: accepts an int and stores the value
+         * @param val: the size_t*/
+        Integer(int val);
 
-    //default destructor for Integer
-    ~Integer();
+        //default destructor for Integer
+        ~Integer();
 
-    //returns the stored int value
-    int get();
+        //returns the stored int value
+        int get();
 };
 
 //represents a float
 class Float: public Object {
+    public:
 
-    /**
-     * default constructor: accepts a float and stores it
-     * @param f: the float value to store */
-    Float(float f);
+        /**
+         * default constructor: accepts a float and stores it
+         * @param f: the float value to store */
+        Float(float f);
 
-    //default destructor for Float
-    ~Float();
+        //default destructor for Float
+        ~Float();
 
-    //returns the stored float value
-    float get();
+        //returns the stored float value
+        float get();
 };
 
 //represents a boolean
 class Bool: public Object {
+    public:
 
-    /**
-     * default constructor for Bool: accepts a bool and stores it
-     * @param b: the bool to store */
-    Bool(bool b);
+        /**
+         * default constructor for Bool: accepts a bool and stores it
+         * @param b: the bool to store */
+        Bool(bool b);
 
-    ~Bool();
+        ~Bool();
 
-    //returns the stored bool value
-    bool get();
+        //returns the stored bool value
+        bool get();
 };
