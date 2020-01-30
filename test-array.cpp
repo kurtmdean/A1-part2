@@ -10,8 +10,8 @@
 
 void FAIL() {   exit(500);    }
 void OK(const char* m) {
-  Cout* c = new Cout();
-  c->pln(m);
+  Sys* s = new Sys();
+  s->pln(m);
 }
 void t_true(bool p) { if (!p) FAIL(); }
 void t_false(bool p) { if (p) FAIL(); }
