@@ -10,8 +10,7 @@
 
 void FAIL() {   exit(500);    }
 void OK(const char* m) {
-  Sys* s = new Sys();
-  s->pln(m);
+  printf("%s\n", m);
 }
 void t_true(bool p) { if (!p) FAIL(); }
 void t_false(bool p) { if (p) FAIL(); }
@@ -54,6 +53,7 @@ void test_add_bad_index() {
 
 void test_add() {
     init();
+
     arr->add(new String("woot"));
     t_true(1 == arr->get_type());
     t_true((new String("woot"))->equals(arr->get(0)));
