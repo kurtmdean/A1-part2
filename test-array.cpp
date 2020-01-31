@@ -62,6 +62,30 @@ void test_set_breaks() {
 }
 */
 
+void test_int_arrays() {
+    init();
+    Integer * i = new Integer(1);
+    arr->add(i);
+    t_true(arr->size() == 1);
+    t_true(arr->get_type() == 3);
+}
+
+void test_bool_arrays() {
+    init();
+    Bool* b = new Bool(true);
+    arr->add(b);
+    t_true(arr->size() == 1);
+    t_true(arr->get_type() == 4);
+}
+
+void test_float_arrays() {
+    init();
+    Float * b = new Float(1.2);
+    arr->add(b);
+    t_true(arr->size() == 1);
+    t_true(arr->get_type() == 2);
+}
+
 void test_add() {
     init();
 
