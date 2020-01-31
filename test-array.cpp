@@ -108,14 +108,13 @@ void test_add_all() {
     t_true((new String("lit"))->equals(arr->get(6)));
     t_true((new String("yeet"))->equals(arr->get(7)));
     t_true((new String("yolo"))->equals(arr->get(8)));
-    t_true((new String("woot"))->equals(arr->get(9)));
     init();
+    arr->add_all(0, full);
     arr->add_all(2, new Array());
     t_true((new String("boii"))->equals(arr->get(0)));
     t_true((new String("lit"))->equals(arr->get(1)));
     t_true((new String("yeet"))->equals(arr->get(2)));
     t_true((new String("yolo"))->equals(arr->get(3)));
-    t_true((new String("woot"))->equals(arr->get(4)));
     Array* a = new Array();
     a->add(new String("a"));
     a->add(new String("b"));
@@ -126,7 +125,6 @@ void test_add_all() {
     t_true((new String("b"))->equals(arr->get(3)));
     t_true((new String("yeet"))->equals(arr->get(4)));
     t_true((new String("yolo"))->equals(arr->get(5)));
-    t_true((new String("woot"))->equals(arr->get(6)));
     OK("Add all was a success");
 }
 
