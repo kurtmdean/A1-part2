@@ -38,19 +38,30 @@ void init() {
 }
 
 
-//the tests for add
+/**
+ * Actions in this comment should break.
 void test_add_null() {
     init();
-    arr->add(NULL); //should break and trigger an assert false
-    arr->add(0, NULL); //should break and trigger an assert false
+    arr->add(NULL); //should break
+    arr->add(0, NULL); //should break
 }
 
-//tests adding with bad indices
 void test_add_bad_index() {
     init();
     arr->add(1, new Object()); //should break because the object was added past the size of the array
     arr->add(-1, new Object()); //should break because two's complement
 }
+
+void test_remove_breaks() {
+    init();
+    arr->remove(1); // no such element to remove
+}
+
+void test_set_breaks() {
+    init();
+    arr->set(1, new Object()); // no element at index 1, index out of bounds
+}
+*/
 
 void test_add() {
     init();
@@ -166,11 +177,6 @@ void test_index_of() {
     OK("index_of");
 }
 
-void test_remove_breaks() {
-    init();
-    arr->remove(1); // no such element to remove
-}
-
 void test_remove() {
     init();
     t_true(full->size() == 4);
@@ -182,14 +188,12 @@ void test_remove() {
     OK("remove");
 }
 
-void test_set_breaks() {
-    init();
-    arr->set(1, new Object()); // no element at index 1, index out of bounds
-}
-
 void test_set() {
     init();
-    
+    size_t s = full->size();
+    full->set(0, new String("test"));
+    t_true(full->size() == s);
+    t_true(full->get(0)->equals(new String("test")));
     OK("set");
 }
 
